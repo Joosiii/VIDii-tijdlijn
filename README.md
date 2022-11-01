@@ -27,6 +27,10 @@ Mijn startniveau is: rood/zwart
 
   ### De eerste versie/schets:
   <img src="https://user-images.githubusercontent.com/82580473/199129038-54fe5865-4f17-475f-bd45-04dbc51608a2.jpg" width="375px" alt="eerste versie/schets">
+  
+  #### Concept:
+  Door met de zaklamp te zoeken naar de lampen en geesten in het donker,
+  kom je achter steeds meer informatie over Gengar door de verschillende Pokémon generaties heen. Hiermee ontstaat er een soort gamification in mijn website. En pas op   dat je niet schrikt van de leuke geest easter eggs!
 
 
   ### Je ambitie: 
@@ -45,9 +49,14 @@ Mijn startniveau is: rood/zwart
 
 <details>
   <summary>Mijn bevindingen + wijzigingen (minimaal 5)</summary>
+  
+  ### Feedback:
+  - Het concept past echt helemaal bij het onderwerp. Wie Pokemon heeft gespeeld vroeger kent dit concept van de grotten die je in de game moest ontdekken en weet dat je dit soort type pokemon tegenkwam hier.
+  - Dit concept is zeer uniek, kan wat mij betreft niet sterker. Interactief zeer sterk, met as much progressive disclosure as possible.
+  - Leuke easter eggs zijn dat je andere pokemon en dergelijke kunt vinden met je zaklamp.
 
   ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Ik kreeg de tip om nog ergens in de website een overzicht van de tijdlijn te plaatsen, zodat je niet hoeft te zoeken naar alle lampen om alle informatie te onthullen.
 
   #### oplossing:
   Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
@@ -55,15 +64,10 @@ Mijn startniveau is: rood/zwart
 
 
   ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Daarnaast kreeg ik de suggestie om eventueel van thema te kunnen switchen in de website, dus dat ik meer Pokémon dan alleen Gengar behandel. Zo zou de gebruiker dan kunnen switchen van een geesten-thema naar bijvoorbeeld een gras-thema.
 
   #### oplossing:
   Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
-
-  ### Bevinding 3:
-  ...
 
 </details>
 

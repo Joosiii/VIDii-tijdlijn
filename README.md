@@ -60,7 +60,7 @@ Mijn startniveau is: rood/zwart
   #### oplossing:
   Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
   
-  ### Bevinding 2:
+  ### Bevinding 3:
   Om de interface elke keer als je hem opstart uniek te houden, kan ik de plaatsing van de elementen gaan randomizen, zodat het spelelement er een beetje in blijft.
 
 </details>

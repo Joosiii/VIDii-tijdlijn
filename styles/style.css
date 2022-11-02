@@ -8,7 +8,9 @@
 }
 
 body {
+  height: 100vh;
   margin:0;
+  background-color: var(--color-bg);
 }
 
 button:not([disabled]) {
@@ -23,11 +25,30 @@ button:not([disabled]) {
 /* CUSTOM PROPERTIES */
 /*********************/
 
+/* Flashlight Overlay */
 :root {
-  --color-headings:crimson
+  cursor: none;
+  --cursorX: 50vw;
+  --cursorY: 50vh;
+
+  --color-headings: white;
+  --color-p: white;
+  --color-bg: rgb(30 3 43);
 }
-
-
+:root:before {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: radial-gradient(
+    circle 20vmax at var(--cursorX) var(--cursorY),
+    rgba(0 0 0 / 0) 0%,
+    rgba(0 0 0 / .5) 60%,
+    rgba(0 0 0 / .95) 80%,
+    rgba(0 0 0) 100%
+  )
+}
 
 
 
@@ -36,10 +57,98 @@ button:not([disabled]) {
 /********************/
 
 h1 {
+  margin-top: 0;
   color:var(--color-headings);
 }
 
+p {
+  color:var(--color-p);
+  font-weight: bold;
+}
+
+.ghosts img {
+  max-width: 10vw;
+
+  z-index: -1;
+
+  animation: fly 4s linear infinite;
+}
+
+.ghosts img:first-of-type {
+  position: absolute;
+  top: 2em;
+  right: 4em;
+}
+
+.ghosts img:nth-of-type(2) {
+  position: absolute;
+  bottom: 15em;
+  right: 20em;
+}
+
+.ghosts img:nth-of-type(3) {
+  position: absolute;
+  bottom: 30em;
+  left: 40em;
+}
+
+@keyframes fly {
+  0.1% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: translateX(-200%) scale(1, 1);
+  }
+  50.1% {
+    transform: translateX(-200%) scale(-1, 1);
+  }
+  100% {
+    transform: translateX(0%) scale(-1, 1);
+  }
+}
+
+.gen1 {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.gen1 img{
+  max-width: 5vw;
+  position: absolute;
+  top: 10em;
+  left: 10em;
+
+  z-index: 1;
+}
+
+.gen1 section {
+  height: 100%;
+  width: 100%;
+
+  background-color: var(--color-bg);
+
+  display: none;
+
+  -webkit-mask:
+		radial-gradient(
+			at 20% 20%,
+			black,
+			transparent 75%
+		);
+}
+
+
+
+.gen2 img{
+  max-width: 5vw;
+  position: absolute;
+  bottom: 10em;
+  left: 50em;
+
+  z-index: 1;
+
+  display: none;
+}
 
 /* ... */
-
-

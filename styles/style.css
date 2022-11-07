@@ -14,6 +14,7 @@ body {
   margin:0;
   background-color: var(--color-bg);
   font-family: 'Albert Sans', sans-serif;
+  overflow: hidden;
 }
 
 button:not([disabled]) {
@@ -316,6 +317,75 @@ article:nth-of-type(4) section img {
 
   bottom: -3.5em;
   right: -3.5em;
+}
+
+ul {
+  height: 100%;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+
+  list-style: none;
+}
+
+ul li {
+margin-right: 1em;
+margin-bottom: 0.5em;
+
+z-index: 5;
+}
+
+ul li:nth-of-type(5) {
+  margin-bottom: 0;
+}
+
+ul li button {
+  height: 3.5vh;
+  width: 3.5vh;
+
+  border-radius: 100em;
+  background-color: transparent;
+  border: 0.15em solid white;
+
+  color: white;
+  font-family: 'Albert Sans',sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+ul li button:hover {
+  background-color: white;
+  color: var(--color-bg);
+}
+
+ul li button:disabled {
+  opacity: 0.2;
+  cursor: none;
+}
+
+ul li button:disabled:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.active {
+  background-color: white;
+  color: var(--color-bg);
 }
 
 

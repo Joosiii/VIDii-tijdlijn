@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,500;0,600;0,700;0,800;0,900;1,300&display=swap');
+
 /*************/
 /* CSS RESET */
 /*************/
@@ -11,6 +13,7 @@ body {
   height: 100vh;
   margin:0;
   background-color: var(--color-bg);
+  font-family: 'Albert Sans', sans-serif;
 }
 
 button:not([disabled]) {
@@ -33,7 +36,9 @@ button:not([disabled]) {
 
   --color-headings: white;
   --color-p: white;
-  --color-bg: rgb(30 3 43);
+  --color-bg: rgb(50, 5, 71);
+
+  --section-size: 40vh;
 }
 :root:before {
   content: '';
@@ -42,12 +47,13 @@ button:not([disabled]) {
   height: 100%;
   position: fixed;
   background: radial-gradient(
-    circle 20vmax at var(--cursorX) var(--cursorY),
+    circle 15vmax at var(--cursorX) var(--cursorY),
     rgba(0 0 0 / 0) 0%,
     rgba(0 0 0 / .5) 60%,
-    rgba(0 0 0 / .95) 80%,
+    rgba(0 0 0 / .80) 80%,
     rgba(0 0 0) 100%
-  )
+  );
+  z-index: 1;
 }
 
 
@@ -57,13 +63,12 @@ button:not([disabled]) {
 /********************/
 
 h1 {
-  margin-top: 0;
+  margin: 0;
   color:var(--color-headings);
 }
 
 p {
   color:var(--color-p);
-  font-weight: bold;
 }
 
 .ghosts img {
@@ -107,48 +112,211 @@ p {
   }
 }
 
-.gen1 {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
 
-.gen1 img{
+
+body > a img {
   max-width: 5vw;
-  position: absolute;
-  top: 10em;
-  left: 10em;
 
-  z-index: 1;
+  cursor: pointer;
+  display: none;
+  visibility: hidden;
 }
 
-.gen1 section {
+body > a {
+  height: 15vw;
+  width: 15vw;
+
+  position: absolute;
+  cursor: none;
+  
+  display: grid;
+  place-items: center;
+  z-index: 4;
+}
+
+body > a:first-of-type {
+  top: 5em;
+  left: 10em;
+}
+
+body > a:nth-of-type(2) {
+  bottom: 5em;
+  left: 50em;
+}
+
+body > a:nth-of-type(3) {
+  top: 5em;
+  left: 60em;
+}
+
+body > a:nth-of-type(4) {
+  top: 20em;
+  left: 30em;
+}
+
+body > a:nth-of-type(5) {
+  top: 35em;
+  left: 0;
+}
+
+body > a:first-of-type img{
+  display: block;
+}
+
+body > a:hover img {
+  visibility: visible;
+}
+
+article {
   height: 100%;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 
   background-color: var(--color-bg);
 
   display: none;
 
+  z-index: 3;
+}
+
+article:first-of-type {
   -webkit-mask:
 		radial-gradient(
-			at 20% 20%,
+			at 25% 25%,
 			black,
 			transparent 75%
 		);
 }
 
-
-
-.gen2 img{
-  max-width: 5vw;
-  position: absolute;
-  bottom: 10em;
-  left: 50em;
-
-  z-index: 1;
-
-  display: none;
+article:nth-of-type(2) {
+  -webkit-mask:
+		radial-gradient(
+			at 75% 75%,
+			black,
+			transparent 75%
+		);
 }
+
+article:nth-of-type(3) {
+  -webkit-mask:
+		radial-gradient(
+			at 80% 35%,
+			black,
+			transparent 75%
+		);
+}
+
+article:nth-of-type(4) {
+  -webkit-mask:
+		radial-gradient(
+			at 50% 45%,
+			black,
+			transparent 75%
+		);
+}
+
+article:nth-of-type(5) {
+  -webkit-mask:
+		radial-gradient(
+			at 20% 80%,
+			black,
+			transparent 75%
+		);
+}
+
+article section {
+  height: var(--section-size);
+  width: calc(var(--section-size)*0.9);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border: 0.2em solid white;
+
+  position: relative;
+}
+
+article:first-of-type section {
+  top: 5em;
+  left: 20em;
+}
+
+article:nth-of-type(2) section {
+  top: 30em;
+  left: 60em;
+}
+
+article:nth-of-type(3) section {
+  top: 5em;
+  left: 70em;
+}
+
+article:nth-of-type(4) section {
+  top: 15em;
+  left: 40em;
+}
+
+article:nth-of-type(5) section {
+  top: 30em;
+  left: 10em;
+}
+
+article > section h1 {
+  margin-top: 1em;
+  width: 70%;
+
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 28px;
+}
+
+article section h2 {
+  margin: 0.5em 0 0 0;
+  width: 70%;
+
+  font-weight: 900;
+  font-size: 38px;
+  color: rgb(248 40 16);
+}
+
+article section p {
+  width: 70%;
+
+  font-weight: 500;
+  font-size: 14px;
+}
+
+article section img {
+  width: 7vw;
+
+  position: absolute;
+  bottom: -1em;
+  right: -1em;
+}
+
+article:nth-of-type(1) section img {
+  width: 9vw;
+
+  bottom: -2em;
+  right: -2em;
+}
+
+article:nth-of-type(3) section img {
+  width: 10vw;
+
+  bottom: -2.5em;
+  right: -2.5em;
+}
+
+article:nth-of-type(4) section img {
+  width: 13vw;
+
+  bottom: -3.5em;
+  right: -3.5em;
+}
+
 
 /* ... */

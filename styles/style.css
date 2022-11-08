@@ -11,8 +11,10 @@
 
 body {
   height: 100vh;
+  width: 100vw;
   margin:0;
-  background-color: var(--color-bg);
+  background-image: url("../images/cavebackground.png");
+  background-size: cover;
   font-family: 'Albert Sans', sans-serif;
   overflow: hidden;
 }
@@ -39,7 +41,38 @@ button:not([disabled]) {
   --color-p: white;
   --color-bg: rgb(50, 5, 71);
 
-  --section-size: 40vh;
+  --font-size: 0.9vw;
+
+  --section-size: 20vw;
+
+  --section-one-top: 0;
+  --section-one-left: 0;
+  --section-two-top: 0;
+  --section-two-left: 0;
+  --section-three-top: 0;
+  --section-three-left: 0;
+  --section-four-top: 0;
+  --section-four-left: 0;
+  --section-five-top: 0;
+  --section-five-left: 0;
+
+  --section-one-placement: 0;
+  --section-two-placement: 0;
+  --section-three-placement: 0;
+  --section-four-placement: 0;
+  --section-five-placement: 0;
+
+  --section-one-side: 0;
+  --section-two-side: 0;
+  --section-three-side: 0;
+  --section-four-side: 0;
+  --section-five-side: 0;
+
+  --section-one-blur: 0;
+  --section-two-blur: 0;
+  --section-three-blur: 0;
+  --section-four-blur: 0;
+  --section-five-blur: 0;
 }
 :root:before {
   content: '';
@@ -82,20 +115,20 @@ p {
 
 .ghosts img:first-of-type {
   position: absolute;
-  top: 2em;
-  right: 4em;
+  top: 20vh;
+  right: 10vw;
 }
 
 .ghosts img:nth-of-type(2) {
   position: absolute;
-  bottom: 15em;
-  right: 20em;
+  bottom: 15vh;
+  right: 40vw;
 }
 
 .ghosts img:nth-of-type(3) {
   position: absolute;
-  bottom: 30em;
-  left: 40em;
+  bottom: 40vh;
+  left: 20vw;
 }
 
 @keyframes fly {
@@ -136,28 +169,28 @@ body > a {
 }
 
 body > a:first-of-type {
-  top: 5em;
-  left: 10em;
+  top: var(--section-one-top);
+  left: var(--section-one-left);
 }
 
 body > a:nth-of-type(2) {
-  bottom: 5em;
-  left: 50em;
+  top: var(--section-two-top);
+  left: var(--section-two-left);
 }
 
 body > a:nth-of-type(3) {
-  top: 5em;
-  left: 60em;
+  top: var(--section-three-top);
+  left: var(--section-three-left);
 }
 
 body > a:nth-of-type(4) {
-  top: 20em;
-  left: 30em;
+  top: var(--section-four-top);
+  left: var(--section-four-left);
 }
 
 body > a:nth-of-type(5) {
-  top: 35em;
-  left: 0;
+  top: var(--section-five-top);
+  left: var(--section-five-left);
 }
 
 body > a:first-of-type img{
@@ -175,7 +208,8 @@ article {
   top: 0;
   left: 0;
 
-  background-color: var(--color-bg);
+  background-image: url("../images/cavebackground.png");
+  background-size: cover;
 
   display: none;
 
@@ -185,51 +219,51 @@ article {
 article:first-of-type {
   -webkit-mask:
 		radial-gradient(
-			at 25% 25%,
+			at var(--section-one-blur),
 			black,
-			transparent 75%
+			transparent 70%
 		);
 }
 
 article:nth-of-type(2) {
   -webkit-mask:
 		radial-gradient(
-			at 75% 75%,
+			at var(--section-two-blur),
 			black,
-			transparent 75%
+			transparent 70%
 		);
 }
 
 article:nth-of-type(3) {
   -webkit-mask:
 		radial-gradient(
-			at 80% 35%,
+			at var(--section-three-blur),
 			black,
-			transparent 75%
+			transparent 70%
 		);
 }
 
 article:nth-of-type(4) {
   -webkit-mask:
 		radial-gradient(
-			at 50% 45%,
+			at var(--section-four-blur),
 			black,
-			transparent 75%
+			transparent 70%
 		);
 }
 
 article:nth-of-type(5) {
   -webkit-mask:
 		radial-gradient(
-			at 20% 80%,
+			at var(--section-five-blur),
 			black,
-			transparent 75%
+			transparent 70%
 		);
 }
 
 article section {
-  height: var(--section-size);
-  width: calc(var(--section-size)*0.9);
+  height: calc(var(--section-size)*1.1);
+  width: var(--section-size);
 
   display: flex;
   align-items: center;
@@ -241,45 +275,45 @@ article section {
 }
 
 article:first-of-type section {
-  top: 5em;
-  left: 20em;
+  top: var(--section-one-placement);
+  left: calc(var(--section-one-left) + var(--section-one-side));
 }
 
 article:nth-of-type(2) section {
-  top: 30em;
-  left: 60em;
+  top: var(--section-two-placement);
+  left: calc(var(--section-two-left) + var(--section-two-side));
 }
 
 article:nth-of-type(3) section {
-  top: 5em;
-  left: 70em;
+  top: var(--section-three-placement);
+  left: calc(var(--section-three-left) + var(--section-three-side));
 }
 
 article:nth-of-type(4) section {
-  top: 15em;
-  left: 40em;
+  top: var(--section-four-placement);
+  left: calc(var(--section-four-left) + var(--section-four-side));
 }
 
 article:nth-of-type(5) section {
-  top: 30em;
-  left: 10em;
+  top: var(--section-five-placement);
+  left: calc(var(--section-five-left) + var(--section-five-side));
 }
 
 article > section h1 {
-  margin-top: 1em;
+  margin-top: 0.75em;
   width: 70%;
 
   font-weight: 900;
   text-transform: uppercase;
-  font-size: 28px;
+  font-size: calc(var(--font-size)*2);
 }
 
 article section h2 {
-  margin: 0.5em 0 0 0;
+  margin: 0.25em 0 0 0;
   width: 70%;
 
   font-weight: 900;
-  font-size: 38px;
+  font-size: calc(var(--font-size)*2.75);
   color: rgb(248 40 16);
 }
 
@@ -287,11 +321,11 @@ article section p {
   width: 70%;
 
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--font-size);
 }
 
 article section img {
-  width: 7vw;
+  width: 5vw;
 
   position: absolute;
   bottom: -1em;
@@ -299,21 +333,21 @@ article section img {
 }
 
 article:nth-of-type(1) section img {
-  width: 9vw;
+  width: 7vw;
 
   bottom: -2em;
   right: -2em;
 }
 
 article:nth-of-type(3) section img {
-  width: 10vw;
+  width: 8vw;
 
   bottom: -2.5em;
   right: -2.5em;
 }
 
 article:nth-of-type(4) section img {
-  width: 13vw;
+  width: 11vw;
 
   bottom: -3.5em;
   right: -3.5em;
@@ -373,10 +407,21 @@ ul li button:disabled:hover {
 
 .visible {
   visibility: visible;
+  content: url("../images/torch-px.gif");
 }
 
 .show {
   display: block;
+}
+
+.show section{
+  opacity: 0;
+
+  animation-name: OpenSection;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
 }
 
 .hide {
@@ -388,5 +433,19 @@ ul li button:disabled:hover {
   color: var(--color-bg);
 }
 
+
+@keyframes OpenSection {
+  0% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 /* ... */

@@ -129,25 +129,45 @@ Mijn startniveau is: rood/zwart
 <details>
   <summary>Mijn feedback, bevindingen en wijzigingen (ma 7 nov - di 8 nov)</summary>
   
+  ### Feedback:
+  - Goed de fakkels random gemaakt, het is nog best moeilijk nu om alle fakkels te vinden
+  - Misschien kan je aangeven wanneer je klaar bent met het vinden van alle fakkels, of aangeven hoeveel fakkels er nog gevonden moeten worden
+  - Misschien kan je nog wat extra animaties of geluiden toevoegen
+  
+  
   ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Uit de feedbackronde bleek dat er nog te weinig informatie of feed forward was voor de gebruiker, het is nog een beetje onduidelijk hoeveel torches er nog gevonden moeten worden
 
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
-
+  #### Oplossing:
+  Ik heb besloten dat ik een sidemenu ga toevoegen aan de website, aan de zijkant zal ik een klein menuutje toevoegen met vijf nummers, zodat de gebruiker kan zien bij welk nummer hij/zij is en hoeveel er nog resterend zijn.
+  
+  
   ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Om nog aan iets aan dit missende stukje feedback toe te voegen, is het nog een beetje onduidelijk voor de gebruiker wanneer een fakkel al eerder aangeklikt is, wanneer je op zoek bent naar de volgende.
 
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
-
-  ### Bevinding 3:
-  ...
-
+  #### Oplossing:
+  Hiervoor zal ik een extra 'state' toevoegen aan de fakkels. Wanneer de gebruiker een fakkel al eerder gevonden heeft, maar zich op dat moment bij een andere fakkel bevindt, zal de fakkel aan de bovenkant een rode gloed hebben, alsof deze net uit is gegaan.
+  
+  ### Progressie
+  Ik ben meteen aan de slag gegaan met het verzorgen van meer 'feed forward' voor de gebruiker. Om te beginnen ben ik het side menu gaan maken, vijf rondjes met de met de fakkels corresponderende cijfers. De gebruiker kan altijd terug gaan naar een bepaalde fakkel door op één van deze bolletjes te klikken. Wanneer een fakkel nog niet vrijgespeeld is zal deze knop `disabled` zijn.
+  
+  ![image](https://user-images.githubusercontent.com/82580473/200946178-483917f7-90d5-4ab1-91d1-30e74077deaf.png)
+  
+  Vervolgens ben ik gaan werken aan een startscherm, waarbij de gebruiker geïntroduceert wordt aan de website. Hieraan heb ik een animatie toegevoegd van Gengar's beruchte rode ogen.
+  
+  ![image](https://user-images.githubusercontent.com/82580473/200947026-45639705-e571-4f42-9750-a6f89e86f800.png)
+  
+  Hiernaast heb ik extra geluiden en animaties toegevoegd aan de informatie-vlakken en het startscherm, zodat de hele website wat levendiger is.
+  ```js
+  const TorchSound = new Audio("sounds/TorchSound.mp3")
+TorchSound.volume = 0.2
+const SectionSound = new Audio("sounds/SectionSound.mp3")
+TorchSound.volume = 0.2
+const GastlySound = new Audio("sounds/GastlySound.mp3")
+GastlySound.volume = 0.1
+const GengarSound = new Audio("sounds/gengar.mp3")
+GengarSound.volume = 0.4
+  ```
 </details>
 
 
@@ -158,25 +178,41 @@ Mijn startniveau is: rood/zwart
 <details>
   <summary>Mijn feedback, bevindingen en wijzigingen (wo 9 nov)</summary>
   
+  ### Feedback:
+  - Je kan misschien in het startscherm nog een uitleg toevoegen over hoe de website werkt, voor iemand die geen idee heeft kan het misschien wat lastig zijn 
+  - De geluiden en de animaties zijn een erg goede toevoeging aan de website
+  - Je kan misschien de gebruiker wat meer hints geven of ze dichtbij een fakkel zijn
+  - Het side menu op zich is misschien nog wat onduidelijk, je kan eventueel tips toevoegen die je dan met de zaklamp kan zoeken
+  
+  
   ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  Ik zou de gebruiker feedback kunnen geven over hoe dichtbij ze bij een fakkel zijn, om het misschien wat makkelijker te maken.
 
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+  #### Oplossing:
+  Door het randomize-systeem welke ik gebruik voor mijn sections wordt het net te lastig om zo'n systeem te implementeren.
 
-
-
+  
   ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
+  De gebruiker zou baat kunnen hebben bij extra tips over wat er gedaan moet worden. Daarnaast is het ook leuk om de gebruiker aan te geven wanneer de laatste fakkel gevonden is.
 
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
+  #### Oplossing:
+  Ten eerste ga ik een 'Hoe werkt het?' stukje toevoegen aan het start scherm. Daarnaast ga ik tijdens het spelen de gebruiker tips geven door middel van een kleine pop-up onderin, en hierin zal ook te zien zijn wanneer de gebruiker alle torches gevonden heeft door middel van een icoontje en een geluidje.
 
 
+  ### Progressie
+  Om te beginnen ben ik aan de slag gegaan met de 'Hoe werkt het?' sectie. Dit is een simpel div'je die zijn content laat zien met een hover state.
+  
+  ![image](https://user-images.githubusercontent.com/82580473/200949384-5f6b1548-1aca-4012-a388-e33ef002d60f.png)
+  
+  Hierna ben ik de tips-pop-up gaan maken, na elke gevonden torch wordt de tip aangepast door middel van `innerHTML`.
+  ```js
+  TipText.innerHTML = "Seach for the 2nd torch!"
+  ```
+  Wanneer de laatste torch gevonden is krijgt de gebruiker feedback door middel van een sound en een aanpassing van tekst en icoon in de pop-up.
+  
+  ![image](https://user-images.githubusercontent.com/82580473/200951390-fe21077b-8e87-41a8-bb1f-db2cdbbf9489.png)
 
-  ### Bevinding 3:
-  ...
-
+  Om de website helemaal af te maken heb ik de content per section toegevoegd en heb ik de finishing touches gedaan.
 </details>
 
 

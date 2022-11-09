@@ -337,6 +337,11 @@ article section h2 {
   color: var(--color-headings-two);
 }
 
+article:nth-of-type(2) > section p,
+article:nth-of-type(4) > section p {
+  margin-bottom: 0;
+}
+
 article section p {
   width: 70%;
 
@@ -345,7 +350,7 @@ article section p {
 }
 
 article section img {
-  width: 5vw;
+  width: 6.5vw;
 
   position: absolute;
   bottom: -1em;
@@ -353,14 +358,14 @@ article section img {
 }
 
 article:nth-of-type(1) section img {
-  width: 7vw;
+  width: 8vw;
 
   bottom: -2em;
   right: -2em;
 }
 
 article:nth-of-type(3) section img {
-  width: 8vw;
+  width: 9vw;
 
   bottom: -2.5em;
   right: -2.5em;
@@ -371,6 +376,10 @@ article:nth-of-type(4) section img {
 
   bottom: -3.5em;
   right: -3.5em;
+}
+
+article:nth-of-type(5) section img {
+  width: 7vw;
 }
 
 
@@ -656,7 +665,7 @@ body > section > div:hover > img {
 }
 
 .active {
-  background-color: var(--color-ps);
+  background-color: var(--color-p);
   color: var(--color-bg);
 }
 

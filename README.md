@@ -21,7 +21,7 @@ Mijn startniveau is: rood/zwart
   
   #### Concept:
   Door met de zaklamp te zoeken naar de lampen en geesten in het donker,
-  kom je achter steeds meer informatie over Gengar door de verschillende Pokémon generaties heen. Hiermee ontstaat er een soort gamification in mijn website. En pas op   dat je niet schrikt van de leuke geest easter eggs!
+  kom je achter steeds meer informatie over Gengar door de verschillende Pokémon generaties heen. Hiermee ontstaat er een soort gamification in mijn website. En pas op   dat je niet schrikt van Gengar en zijn mede-geesten!
 
 
   ### Je ambitie: 
@@ -153,12 +153,33 @@ Mijn startniveau is: rood/zwart
 ## Bronnenlijst
 
 <details open>
-<summary>continu bijhouden terwijl je werkt</summary>
+<summary>Mijn gebruikte bronnen</summary>
 
-Nb. Wees specifiek ('css-tricks' als bron is bijv. niet specifiek genoeg).
+### Afbeeldingen
+1. https://www.artstation.com/artwork/3o1b5D
+2. https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)#Trivia
+3. https://opengameart.org/content/simple-torch-animation-16x16
+4. https://princess-gothimu.tumblr.com/post/148589397793
 
-1. bron 1
-2. bron 2
-3. ...
+### Geluiden
+1. https://www.youtube.com/watch?v=MGoxCn4G33k
+2. https://www.youtube.com/watch?v=7eJZ1GtFpVE
+3. https://www.youtube.com/watch?v=QhJaPElJwLI
+4. https://www.youtube.com/watch?v=ghObc6JGY88
+
+### Informatie
+1. https://pokemondb.net/pokedex/gengar#dex-basics
+2. https://bulbapedia.bulbagarden.net/wiki/Gengar_(Pok%C3%A9mon)#Trivia
+
+### Code
+1. https://www.w3schools.com/css/css3_animations.asp
+2. https://stackoverflow.com/questions/42753228/basic-javascript-random-positioning
+3. https://quickref.me/get-a-random-item-and-remove-it-from-an-array
+4. https://www.codespeedy.com/play-audio-with-time-delay-javascript/
+5. https://css-tricks.com/snippets/css/css-box-shadow/
+6. https://pragmaticpineapple.com/smoothly-reverting-css-animations/
+7. https://stackoverflow.com/questions/8566090/how-can-i-delay-a-hover-effect-in-css
+8. https://codemyui.com/flashlight-mouse-pointer/
+9. Sanne en Jeffrey
 
 </details>

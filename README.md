@@ -26,10 +26,10 @@ Mijn startniveau is: rood/zwart
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Een volledig interactieve website maken
+  - Gebruik maken van CSS-animaties
+  - Veel JavaScript gebruiken, bijvoorbeeld om de plek van de lampen de randomizen
+  - Mijn oorspronkelijke idee volledig uitwerken
  
 </details>
 

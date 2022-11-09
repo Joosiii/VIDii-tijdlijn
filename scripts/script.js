@@ -16,6 +16,8 @@ const Button3 = document.querySelector('ul li:nth-of-type(3) button')
 const Button4 = document.querySelector('ul li:nth-of-type(4) button')
 const Button5 = document.querySelector('ul li:nth-of-type(5) button')
 
+const ButtonStart = document.querySelector('body > section button')
+
 const TorchSound = new Audio("sounds/TorchSound.mp3")
 TorchSound.volume = 0.2
 const SectionSound = new Audio("sounds/SectionSound.mp3")
@@ -61,13 +63,13 @@ Button5.addEventListener('click', Section5)
 function Section1() {
     TorchSound.play()
     setTimeout(function () {
-        SectionSound.play();
+        SectionSound.play()
     }, 700)
 
     Gen1.classList.add('show')
     Gen1.classList.remove('hide')
     Torch2.classList.add('show')
-    Button1.disabled = false;
+    Button1.disabled = false
 
     Torch1.src = "images/torch-used-px.png"
 
@@ -93,13 +95,13 @@ function Section1() {
 function Section2() {
     TorchSound.play()
     setTimeout(function () {
-        SectionSound.play();
+        SectionSound.play()
     }, 700)
 
     Gen2.classList.add('show')
     Gen2.classList.remove('hide')
     Torch3.classList.add('show')
-    Button2.disabled = false;
+    Button2.disabled = false
 
     Torch2.src = "images/torch-used-px.png"
 
@@ -125,13 +127,13 @@ function Section2() {
 function Section3() {
     TorchSound.play()
     setTimeout(function () {
-        SectionSound.play();
+        SectionSound.play()
     }, 700)
 
     Gen3.classList.add('show')
     Gen3.classList.remove('hide')
     Torch4.classList.add('show')
-    Button3.disabled = false;
+    Button3.disabled = false
 
     Torch3.src = "images/torch-used-px.png"
 
@@ -157,13 +159,13 @@ function Section3() {
 function Section4() {
     TorchSound.play()
     setTimeout(function () {
-        SectionSound.play();
+        SectionSound.play()
     }, 700)
 
     Gen4.classList.add('show')
     Gen4.classList.remove('hide')
     Torch5.classList.add('show')
-    Button4.disabled = false;
+    Button4.disabled = false
 
     Torch4.src = "images/torch-used-px.png"
 
@@ -189,12 +191,12 @@ function Section4() {
 function Section5() {
     TorchSound.play()
     setTimeout(function () {
-        SectionSound.play();
+        SectionSound.play()
     }, 700)
 
     Gen5.classList.add('show')
     Gen5.classList.remove('hide')
-    Button5.disabled = false;
+    Button5.disabled = false
 
     Torch5.src = "images/torch-used-px.png"
 
@@ -232,36 +234,36 @@ let Positioning = [{
         "top": (Math.round(Math.random() * 25)),
         "left": (Math.round(Math.random() * 5)),
         "sectiontop": 10,
-        "blur1": -10,
-        "blur2": 20
+        "blur1": 25,
+        "blur2": 25
     },
     {
         "top": ((Math.round(Math.random() * 25)) + 50),
         "left": (Math.round(Math.random() * 5)),
         "sectiontop": 50,
-        "blur1": -10,
-        "blur2": 90
+        "blur1": 25,
+        "blur2": 75
     },
     {
-        "top": ((Math.round(Math.random() * 40)) + 15),
+        "top": ((Math.round(Math.random() * 30)) + 25),
         "left": ((Math.round(Math.random() * 5)) + 30),
         "sectiontop": 30,
-        "blur1": 50,
+        "blur1": 55,
         "blur2": 50
     },
     {
         "top": (Math.round(Math.random() * 25)),
         "left": ((Math.round(Math.random() * 5)) + 80),
         "sectiontop": 10,
-        "blur1": 110,
-        "blur2": 20
+        "blur1": 75,
+        "blur2": 25
     },
     {
         "top": ((Math.round(Math.random() * 25)) + 50),
         "left": ((Math.round(Math.random() * 5)) + 80),
         "sectiontop": 50,
-        "blur1": 110,
-        "blur2": 80
+        "blur1": 75,
+        "blur2": 75
     }
 ]
 
@@ -370,3 +372,14 @@ Section2Position()
 Section3Position()
 Section4Position()
 Section5Position()
+
+ButtonStart.addEventListener('click', Start)
+
+function Start() {
+    const StartScreen = document.querySelector('body > section')
+    StartScreen.classList.add('fade')
+
+    setTimeout(function () {
+        StartScreen.classList.add('hide')
+    }, 300)
+}

@@ -221,7 +221,7 @@ article:first-of-type {
 		radial-gradient(
 			at var(--section-one-blur),
 			black,
-			transparent 70%
+			transparent 60%
 		);
 }
 
@@ -230,7 +230,7 @@ article:nth-of-type(2) {
 		radial-gradient(
 			at var(--section-two-blur),
 			black,
-			transparent 70%
+			transparent 60%
 		);
 }
 
@@ -239,7 +239,7 @@ article:nth-of-type(3) {
 		radial-gradient(
 			at var(--section-three-blur),
 			black,
-			transparent 70%
+			transparent 60%
 		);
 }
 
@@ -248,7 +248,7 @@ article:nth-of-type(4) {
 		radial-gradient(
 			at var(--section-four-blur),
 			black,
-			transparent 70%
+			transparent 60%
 		);
 }
 
@@ -257,7 +257,7 @@ article:nth-of-type(5) {
 		radial-gradient(
 			at var(--section-five-blur),
 			black,
-			transparent 70%
+			transparent 60%
 		);
 }
 
@@ -270,6 +270,9 @@ article section {
   flex-direction: column;
 
   border: 0.2em solid white;
+  box-shadow: 
+  0 0 3em rgba(255, 255, 255, 0.4),
+  inset 0 0 3em rgba(255, 255, 255, 0.4);
 
   position: relative;
 }
@@ -405,6 +408,127 @@ ul li button:disabled:hover {
   color: white;
 }
 
+
+
+body > section {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: black;
+  z-index: 10;
+
+  position: absolute;
+  top: 0;
+
+  cursor: auto;
+  pointer-events: all;
+}
+
+body > section img {
+  margin-top: 10vh;
+  max-width: 50vw;
+  transform: translateX(0.5vw) scaleY(0);
+
+  animation-name: RandomEyes, Eyes;
+  animation-duration: 3s, 3s;
+  animation-delay: 0s, 3.5s;
+  animation-iteration-count: 1, infinite;
+
+  transition: opacity 0.3s ease-in-out;
+}
+
+@keyframes RandomEyes {
+  20% {
+    transform: translate(-15vw, -5vh) rotate(20deg) scale(0);
+  }
+  20.1% {
+    transform: translate(-15vw, -5vh) rotate(20deg) scale(0.25);
+  }
+  39.9% {
+    transform: translate(-15vw, -5vh) rotate(20deg) scale(0.25);
+  }
+  40% {
+    transform: translate(-15vw, -5vh) rotate(20deg) scale(0);
+  }
+  60% {
+    transform: translate(20vw, 10vh) rotate(-30deg) scale(0);
+  }
+  60.1% {
+    transform: translate(20vw, 10vh) rotate(-30deg) scale(0.4);
+  }
+  79.9% {
+    transform: translate(20vw, 10vh) rotate(-30deg) scale(0.4);
+  }
+  80% {
+    transform: translate(20vw, 10vh) rotate(-30deg) scale(0);
+  }
+}
+
+@keyframes Eyes {
+  10% {
+    transform: translateX(0.5vw) scaleY(0);
+  }
+  11% {
+    transform: translateX(0.5vw) scaleY(1);
+  }
+  17% {
+    transform: translateX(0.5vw) scaleY(1);
+  }
+  18% {
+    transform: translateX(0.5vw) scaleY(0);
+  }
+  28% {
+    transform: translateX(0.5vw) scaleY(0);
+  }
+  29% {
+    transform: translateX(0.5vw) scaleY(1);
+  }
+  95% {
+    transform: translateX(0.5vw) scaleY(1);
+  }
+  96% {
+    transform: translateX(0.5vw) scaleY(0);
+  }
+}
+
+body > section img:hover {
+  opacity: 0;
+}
+
+body > section button {
+  height: 4vh;
+  width: 10vw; 
+  margin-top: -5vh;
+
+  background-color: transparent;
+  color: white;
+  font-family: 'Albert Sans',sans-serif;
+  font-weight: 800;
+  text-align: center;
+
+  border-radius: 100em;
+  border: 0.15em solid white;
+  opacity: 0;
+
+  transition: transform 0.3s ease-in-out,
+  background-color 0.3s ease-in-out,
+  color 0.3s ease-in-out;
+
+  animation: FadeIn 0.5s 4.5s ease-in-out forwards;
+}
+
+body > section button:hover {
+  transform: scale(1.2);
+  background-color: white;
+  color: var(--color-bg);
+}
+
+
+
 .visible {
   visibility: visible;
   content: url("../images/torch-px.gif");
@@ -428,6 +552,12 @@ ul li button:disabled:hover {
   display: none;
 }
 
+.fade {
+  animation-name: FadeOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
 .active {
   background-color: white;
   color: var(--color-bg);
@@ -445,6 +575,24 @@ ul li button:disabled:hover {
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@keyframes FadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 

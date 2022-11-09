@@ -4,10 +4,21 @@
 /* CSS RESET */
 /*************/
 
-/* naar een idee van Jen Simmons */
 *, *::after, *::before {
   box-sizing:border-box;  
 }
+
+button:not([disabled]) {
+  cursor:pointer;
+}
+
+
+
+
+
+/********************/
+/* ALGEMENE STYLING */
+/********************/
 
 body {
   height: 100vh;
@@ -19,8 +30,13 @@ body {
   overflow: hidden;
 }
 
-button:not([disabled]) {
-  cursor:pointer;
+h1 {
+  margin: 0;
+  color:var(--color-headings);
+}
+
+p {
+  color:var(--color-p);
 }
 
 
@@ -31,13 +47,13 @@ button:not([disabled]) {
 /* CUSTOM PROPERTIES */
 /*********************/
 
-/* Flashlight Overlay */
 :root {
   cursor: none;
   --cursorX: 50vw;
   --cursorY: 50vh;
 
   --color-headings: white;
+  --color-headings-two: rgb(248 40 16);
   --color-p: white;
   --color-bg: rgb(50, 5, 71);
 
@@ -74,6 +90,9 @@ button:not([disabled]) {
   --section-four-blur: 0;
   --section-five-blur: 0;
 }
+
+/* Flashlight Overlay */
+
 :root:before {
   content: '';
   display: block;
@@ -92,18 +111,9 @@ button:not([disabled]) {
 
 
 
-/********************/
-/* ALGEMENE STYLING */
-/********************/
-
-h1 {
-  margin: 0;
-  color:var(--color-headings);
-}
-
-p {
-  color:var(--color-p);
-}
+/**********************/
+/* ACHTERGROND GHOSTS */
+/**********************/
 
 .ghosts img {
   max-width: 10vw;
@@ -131,22 +141,13 @@ p {
   left: 20vw;
 }
 
-@keyframes fly {
-  0.1% {
-    transform: scale(1, 1);
-  }
-  50% {
-    transform: translateX(-200%) scale(1, 1);
-  }
-  50.1% {
-    transform: translateX(-200%) scale(-1, 1);
-  }
-  100% {
-    transform: translateX(0%) scale(-1, 1);
-  }
-}
 
 
+
+
+/***********/
+/* TORCHES */
+/***********/
 
 body > a img {
   max-width: 5vw;
@@ -200,6 +201,14 @@ body > a:first-of-type img{
 body > a:hover img {
   visibility: visible;
 }
+
+
+
+
+
+/********************/
+/* SECTIONS OVERLAY */
+/********************/
 
 article {
   height: 100%;
@@ -261,6 +270,14 @@ article:nth-of-type(5) {
 		);
 }
 
+
+
+
+
+/********************/
+/* SECTIONS STYLING */
+/********************/
+
 article section {
   height: calc(var(--section-size)*1.1);
   width: var(--section-size);
@@ -269,7 +286,7 @@ article section {
   align-items: center;
   flex-direction: column;
 
-  border: 0.2em solid white;
+  border: 0.2em solid var(--color-p);
   box-shadow: 
   0 0 3em rgba(255, 255, 255, 0.4),
   inset 0 0 3em rgba(255, 255, 255, 0.4);
@@ -312,12 +329,12 @@ article > section h1 {
 }
 
 article section h2 {
-  margin: 0.25em 0 0 0;
+  margin: 0.75vh 0 0 0;
   width: 70%;
 
   font-weight: 900;
   font-size: calc(var(--font-size)*2.75);
-  color: rgb(248 40 16);
+  color: var(--color-headings-two);
 }
 
 article section p {
@@ -356,6 +373,14 @@ article:nth-of-type(4) section img {
   right: -3.5em;
 }
 
+
+
+
+
+/*********************/
+/* PROGRESS SIDEMENU */
+/*********************/
+
 ul {
   height: 100%;
   margin: 0;
@@ -385,16 +410,16 @@ ul li button {
 
   border-radius: 100em;
   background-color: transparent;
-  border: 0.15em solid white;
+  border: 0.15em solid var(--color-p);
 
-  color: white;
+  color: var(--color-p);
   font-family: 'Albert Sans',sans-serif;
   font-weight: 600;
   text-align: center;
 }
 
 ul li button:hover {
-  background-color: white;
+  background-color: var(--color-p);
   color: var(--color-bg);
 }
 
@@ -405,10 +430,61 @@ ul li button:disabled {
 
 ul li button:disabled:hover {
   background-color: transparent;
-  color: white;
+  color: var(--color-p);
 }
 
 
+
+
+
+/**************/
+/* TIPS POPUP */
+/**************/
+body > span {
+  height: 6vh;
+  width: 18vw;
+
+  position: absolute;
+  left: 40%;
+  bottom: 5vh;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: transparent;
+  border: 0.15em solid var(--color-p);
+  border-radius: 5em;
+
+  color: var(--color-p);
+  font-family: 'Albert Sans',sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: right;
+
+  z-index: 5;
+}
+
+body > span > img {
+  max-height: 3vh;
+  margin-left: 1.5vw;
+
+  z-index: 5;
+}
+
+body > span > p {
+  margin-right: 1.5vw;
+
+  z-index: 5;
+}
+
+
+
+
+
+/***************/
+/* STARTSCHERM */
+/***************/
 
 body > section {
   height: 100%;
@@ -428,7 +504,7 @@ body > section {
   pointer-events: all;
 }
 
-body > section img {
+body > section > img {
   margin-top: 10vh;
   max-width: 50vw;
   transform: translateX(0.5vw) scaleY(0);
@@ -439,6 +515,204 @@ body > section img {
   animation-iteration-count: 1, infinite;
 
   transition: opacity 0.3s ease-in-out;
+}
+
+body > section button {
+  height: 4vh;
+  width: 10vw; 
+  margin-top: -5vh;
+
+  background-color: transparent;
+  color: white;
+  font-family: 'Albert Sans',sans-serif;
+  font-weight: 800;
+  text-align: center;
+
+  border-radius: 100em;
+  border: 0.15em solid var(--color-p);
+  opacity: 0;
+
+  animation: FadeIn 0.5s 4.5s ease-in-out forwards;
+}
+
+body > section button:first-of-type {
+  transition: transform 0.3s ease-in-out,
+  background-color 0.3s ease-in-out,
+  color 0.3s ease-in-out;
+}
+
+body > section button:first-of-type:hover {
+  transform: scale(1.2);
+  background-color: var(--color-p);
+  color: var(--color-bg);
+}
+
+body > section div {
+  height: 4vh;
+  width: 10vw; 
+  margin-top: 2vh;
+
+  position: relative;
+
+  background-color: white;
+
+  transition: height 0.4s ease-in-out,
+  width 0.4s ease-in-out,
+  border-radius 0.4s ease-in-out;
+
+  border-radius: 3em;
+  border: 0.15em solid white;
+  opacity: 0;
+
+  transform-origin: center top;
+
+  animation: FadeIn 0.5s 4.5s ease-in-out forwards;
+}
+
+body > section div:hover {
+  height: 16vh;
+  width: 25vw;
+  border-radius: 1em;
+}
+
+body > section div p:first-of-type {
+  margin-top: 0.75vh;
+
+  color: var(--color-bg);
+  font-family: 'Albert Sans',sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+
+body > section div p:nth-of-type(2) {
+  width: 60%;
+  margin-left: 2vw;
+
+  color: var(--color-bg);
+  font-family: 'Albert Sans',sans-serif;
+  font-weight: 500;
+  text-align: left;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+body > section div:hover p{
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+body > section > div > img {
+  max-height: 8vh;
+
+  position: absolute;
+  top: 5vh;
+  right: 1.5vw;
+
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+body > section > div:hover > img {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
+
+
+
+
+/***********/
+/* CLASSES */
+/***********/
+
+.visible {
+  visibility: visible;
+  content: url("../images/torch-px.gif");
+}
+
+.show {
+  display: block;
+}
+
+.show section{
+  opacity: 0;
+
+  animation-name: OpenSection;
+  animation-duration: 0.3s;
+  animation-timing-function: linear;
+  animation-delay: 0.7s;
+  animation-fill-mode: forwards;
+}
+
+.hide {
+  display: none;
+}
+
+.fade {
+  animation-name: FadeOut;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.active {
+  background-color: var(--color-ps);
+  color: var(--color-bg);
+}
+
+
+
+
+
+/*************/
+/* ANIMATIES */
+/*************/
+
+@keyframes OpenSection {
+  0% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes FadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fly {
+  0.1% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: translateX(-200%) scale(1, 1);
+  }
+  50.1% {
+    transform: translateX(-200%) scale(-1, 1);
+  }
+  100% {
+    transform: translateX(0%) scale(-1, 1);
+  }
 }
 
 @keyframes RandomEyes {
@@ -492,107 +766,6 @@ body > section img {
   }
   96% {
     transform: translateX(0.5vw) scaleY(0);
-  }
-}
-
-body > section img:hover {
-  opacity: 0;
-}
-
-body > section button {
-  height: 4vh;
-  width: 10vw; 
-  margin-top: -5vh;
-
-  background-color: transparent;
-  color: white;
-  font-family: 'Albert Sans',sans-serif;
-  font-weight: 800;
-  text-align: center;
-
-  border-radius: 100em;
-  border: 0.15em solid white;
-  opacity: 0;
-
-  transition: transform 0.3s ease-in-out,
-  background-color 0.3s ease-in-out,
-  color 0.3s ease-in-out;
-
-  animation: FadeIn 0.5s 4.5s ease-in-out forwards;
-}
-
-body > section button:hover {
-  transform: scale(1.2);
-  background-color: white;
-  color: var(--color-bg);
-}
-
-
-
-.visible {
-  visibility: visible;
-  content: url("../images/torch-px.gif");
-}
-
-.show {
-  display: block;
-}
-
-.show section{
-  opacity: 0;
-
-  animation-name: OpenSection;
-  animation-duration: 0.3s;
-  animation-timing-function: linear;
-  animation-delay: 0.7s;
-  animation-fill-mode: forwards;
-}
-
-.hide {
-  display: none;
-}
-
-.fade {
-  animation-name: FadeOut;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-}
-
-.active {
-  background-color: white;
-  color: var(--color-bg);
-}
-
-
-@keyframes OpenSection {
-  0% {
-    opacity: 0;
-    transform: scale(1.6);
-  }
-  80% {
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes FadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes FadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 

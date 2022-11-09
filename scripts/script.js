@@ -1,3 +1,5 @@
+// Alle nodige elementen worden uit de HTML gehaald en gedeclareerd
+
 const Gen1 = document.querySelector('article:first-of-type')
 const Gen2 = document.querySelector('article:nth-of-type(2)')
 const Gen3 = document.querySelector('article:nth-of-type(3)')
@@ -18,15 +20,26 @@ const Button5 = document.querySelector('ul li:nth-of-type(5) button')
 
 const ButtonStart = document.querySelector('body > section button')
 
+const TipIcon = document.querySelector('body > span > img')
+const TipText = document.querySelector('body > span > p')
+
+// Alle benodigde geluiden worden gedeclareerd en het volume wordt bepaald
+
 const TorchSound = new Audio("sounds/TorchSound.mp3")
 TorchSound.volume = 0.2
 const SectionSound = new Audio("sounds/SectionSound.mp3")
 TorchSound.volume = 0.2
 const GastlySound = new Audio("sounds/GastlySound.mp3")
 GastlySound.volume = 0.1
+const GengarSound = new Audio("sounds/gengar.mp3")
+GengarSound.volume = 0.4
+const CompleteSound = new Audio("sounds/complete.mp3")
+CompleteSound.volume = 0.1
 
 // Bron gebruikt: https://css-tricks.com/play-sound-on-hover/
 
+// De flashlight functie wordt geïmplementeerd, op basis van de positie van de muis verschijnt er een transparante
+// radial gradient in de in CSS gemaakte overlay
 
 function Flashlight(e) {
     let x = e.clientX || e.touches[0].clientX
@@ -41,11 +54,15 @@ document.addEventListener('touchmove', Flashlight)
 
 // Bron gebruikt: https://codemyui.com/flashlight-mouse-pointer/
 
+// De buttons in de sidemenu worden disabled (default)
+
 Button1.disabled = true;
 Button2.disabled = true;
 Button3.disabled = true;
 Button4.disabled = true;
 Button5.disabled = true;
+
+// De EventListeners worden aangemaakt voor wanneer er op de buttons of torches geklikt wordt
 
 Torch1.addEventListener('click', Section1)
 Torch2.addEventListener('click', Section2)
@@ -59,20 +76,30 @@ Button3.addEventListener('click', Section3)
 Button4.addEventListener('click', Section4)
 Button5.addEventListener('click', Section5)
 
+// Elke section heeft zijn eigen functie, deze wordt uitgevoerd wanneer de corresponderende torch/button geklikt wordt
 
 function Section1() {
+    // Ten eerste worden er twee geluiden afgespeeld, eerst een geluid dat de torch aan gaat en vervolgens, met een delay
+    // het geluid van de in beeld komende section
     TorchSound.play()
     setTimeout(function () {
         SectionSound.play()
     }, 700)
 
+    // Vervolgens moet de section zichtbaar worden door middel van een class, moet de volgende torch verschijnen en moet de button
+    // werkend worden
     Gen1.classList.add('show')
     Gen1.classList.remove('hide')
     Torch2.classList.add('show')
     Button1.disabled = false
 
+    // Door de afbeelding te vervangen gaat de torch aan
     Torch1.src = "images/torch-used-px.png"
 
+    // De tip wordt aangepast
+    TipText.innerHTML = "Seach for the 2nd torch!"
+
+    // Vervolgens moeten alle andere sections uit gaan, mocht de gebruiker vanuit een andere section op deze hebben geklikt
     Torch1.classList.add('visible')
     Torch2.classList.remove('visible')
     Torch3.classList.remove('visible')
@@ -91,6 +118,7 @@ function Section1() {
     Button5.classList.remove('active')
 }
 
+// Zie Section 1
 
 function Section2() {
     TorchSound.play()
@@ -104,6 +132,8 @@ function Section2() {
     Button2.disabled = false
 
     Torch2.src = "images/torch-used-px.png"
+
+    TipText.innerHTML = "Seach for the 3rd torch!"
 
     Torch2.classList.add('visible')
     Torch1.classList.remove('visible')
@@ -123,6 +153,7 @@ function Section2() {
     Button5.classList.remove('active')
 }
 
+// Zie Section 1
 
 function Section3() {
     TorchSound.play()
@@ -136,6 +167,8 @@ function Section3() {
     Button3.disabled = false
 
     Torch3.src = "images/torch-used-px.png"
+
+    TipText.innerHTML = "Seach for the 4th torch!"
 
     Torch3.classList.add('visible')
     Torch1.classList.remove('visible')
@@ -155,6 +188,7 @@ function Section3() {
     Button5.classList.remove('active')
 }
 
+// Zie Section 1
 
 function Section4() {
     TorchSound.play()
@@ -168,6 +202,8 @@ function Section4() {
     Button4.disabled = false
 
     Torch4.src = "images/torch-used-px.png"
+
+    TipText.innerHTML = "Seach for the 5th torch!"
 
     Torch4.classList.add('visible')
     Torch1.classList.remove('visible')
@@ -187,6 +223,7 @@ function Section4() {
     Button5.classList.remove('active')
 }
 
+// Zie Section 1
 
 function Section5() {
     TorchSound.play()
@@ -199,6 +236,13 @@ function Section5() {
     Button5.disabled = false
 
     Torch5.src = "images/torch-used-px.png"
+
+    TipText.innerHTML = "You've found all torches!"
+    TipIcon.src = "images/winicon.png"
+
+    setTimeout(function () {
+        CompleteSound.play()
+    }, 1200)
 
     Torch5.classList.add('visible')
     Torch1.classList.remove('visible')
@@ -218,17 +262,8 @@ function Section5() {
     Button4.classList.remove('active')
 }
 
-
-
-// let Section1_Top = (Math.round(Math.random() * 35))
-// console.log(Section1_Top)
-// document.documentElement.style.setProperty('--section-one-top', Section1_Top + "vh")
-
-// let Section1_Left = (Math.round(Math.random() * 5))
-// console.log(Section1_Left)
-// document.documentElement.style.setProperty('--section-one-left', Section1_Left + "vw")
-
-
+// Er wordt een array aangemaakt met objects voor de mogelijke posities van de verschillende torches, deze posities worden
+// gerandomized binnen een bepaald kader
 
 let Positioning = [{
         "top": (Math.round(Math.random() * 25)),
@@ -267,7 +302,11 @@ let Positioning = [{
     }
 ]
 
+// Elke section krijgt door middel van een function een eigen positie
+
 function Section1Position() {
+    // Uit de array wordt random 1 van de 5 objects gekozen en vervolgens uit array verwijderd, de data uit de object wordt
+    // doorgestuurd in de vorm van CSS variabelen
     const rdmNumber1 = Math.floor(Math.random() * Positioning.length)
     const Position = Positioning[rdmNumber1]
     Positioning.splice(rdmNumber1, 1)
@@ -276,6 +315,7 @@ function Section1Position() {
     document.documentElement.style.setProperty('--section-one-placement', Position.sectiontop + "vh")
     document.documentElement.style.setProperty('--section-one-blur', Position.blur1 + "% " + Position.blur2 + "%")
 
+    // Op basis van de positie van de torch wordt de section óf links óf rechts hiervan geplaatst
     if (Position.left > 70) {
         document.documentElement.style.setProperty('--section-one-side', -17 + "vw")
     } else {
@@ -286,6 +326,8 @@ function Section1Position() {
     console.log(Position.top)
     console.log(Position.left)
 }
+
+// Zie Section 1 Position
 
 function Section2Position() {
     const rdmNumber2 = Math.floor(Math.random() * Positioning.length)
@@ -307,6 +349,8 @@ function Section2Position() {
     console.log(Position2.left)
 }
 
+// Zie Section 1 Position
+
 function Section3Position() {
     const rdmNumber3 = Math.floor(Math.random() * Positioning.length)
     const Position3 = Positioning[rdmNumber3]
@@ -326,6 +370,8 @@ function Section3Position() {
     console.log(Position3.top)
     console.log(Position3.left)
 }
+
+// Zie Section 1 Position
 
 function Section4Position() {
     const rdmNumber4 = Math.floor(Math.random() * Positioning.length)
@@ -347,6 +393,8 @@ function Section4Position() {
     console.log(Position4.left)
 }
 
+// Zie Section 1 Position
+
 function Section5Position() {
     const rdmNumber5 = Math.floor(Math.random() * Positioning.length)
     const Position5 = Positioning[rdmNumber5]
@@ -367,11 +415,15 @@ function Section5Position() {
     console.log(Position5.left)
 }
 
+// Alle functies worden uitgevoerd, waarmee dus de torches en sections geplaatst worden op een randomized positie
+
 Section1Position()
 Section2Position()
 Section3Position()
 Section4Position()
 Section5Position()
+
+// Bij klikken op de start button verdwijnt het startscherm en wordt er een sound afgespeeld
 
 ButtonStart.addEventListener('click', Start)
 
@@ -382,4 +434,5 @@ function Start() {
     setTimeout(function () {
         StartScreen.classList.add('hide')
     }, 300)
+    GengarSound.play()
 }

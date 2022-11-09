@@ -93,7 +93,9 @@ Mijn startniveau is: rood/zwart
   ![image](https://user-images.githubusercontent.com/82580473/200905351-8ff66728-d879-477c-8e5d-cf88b0fddc1f.png)
 
   Nu moesten mijn torches gaan genereren op random plekken. Dit wilde ik ten eerste doen door deze te laten genereren binnen een bepaald kader over het hele scherm. Het probleem daarmee was echter dat hierdoor soms de torches onder sections of andere torches genereerden.
+  
   ![image](https://user-images.githubusercontent.com/82580473/200906267-05c6c062-da29-493a-8f65-e554576c37ea.png)
+  
   Dit moest dus op een andere manier aangepakt worden. Ik kwam op het idee om het scherm op te delen in vijf vlakken, en de torches en sections op basis van deze vlakken te positioneren.
   ![image](https://user-images.githubusercontent.com/82580473/200906519-d662b5f9-bd7c-4ed4-9da6-a5adb3ae9759.png)
 
